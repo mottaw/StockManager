@@ -2,7 +2,9 @@
 $store_name = "ConstruTech";
 
 $types = [
-    ""
+    "bruto" => "Bruto",
+    "ferramenta" => "Ferramenta",
+    "acabamento" => "Acabamento"
 ];
 
 $products = [

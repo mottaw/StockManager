@@ -35,9 +35,13 @@ $selectedType = $_GET['type'] ?? null;
                 <label for="filter">Filtrar por tipo</label>
                 <select name="filter" id="filter">
                     <option selected>Tudo</option>
-                    <option value="Bruto">Bruto</option>
-                    <option value="Ferramenta">Ferramenta</option>
-                    <option value="Acabamento">Acabamento</option>
+
+                    <?php
+                    foreach ($types as $ktype => $valor){
+                    ?>
+                    <option value="<?php $ktype ?>"><?php echo $valor ?></option>
+                        
+                    <?php } ?>
                 </select>
             </div>
             <table class="table">
