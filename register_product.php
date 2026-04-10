@@ -11,7 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'id' => $newId,
         'name' => $_POST['name'],
         'type' => $_POST['type'],
-        'price' => $_POST['price']
+        'price' => $_POST['price'],
+        'stock' => $_POST['stock']
     ];
     
     $_SESSION['products'][] = $newProduct;
@@ -28,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <title>Cadastro de Produto | ConstruTech</title>
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     
@@ -41,11 +42,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <form method="POST" class="register-form">
 
-    <label for="prodName">Nome</label>
-    <input type="text" id="name" placeholder="Digite aqui" required>
+    <label for="name">Nome</label>
+    <input type="text" id="name" name="name" placeholder="Digite aqui" required>
 
     <label for="prodType">Tipo...</label>
-    <select name="types" id="types">
+    <select name="type" id="type">
         <option value="Bruto">Bruto</option>
         <option value="Ferramenta">Ferramenta</option>
         <option value="Acabamento">Acabamento</option>
@@ -53,6 +54,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <label for="prodPrice">Preço</label>
     <input type="number" id="price" name="price" step="0.01" placeholder="0.00" required>
+
+    <label for="prodStock">Estoque</label>
+    <input type="number" id="stock" name="stock" step="1" placeholder="0" required>
 
     <button type="submit" class="register-button">Cadastrar</button>
 

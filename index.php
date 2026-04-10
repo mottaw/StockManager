@@ -33,7 +33,7 @@ $selectedType = $_GET['type'] ?? null;
 
         ?>
 
-        <h2><?php echo $product['name']; ?> | <?php echo $product['type']; ?> | <?php echo $product['price']; ?> | <?php echo $product['stock']; ?></h2>
+        <h2><?php echo $product['id']; ?> | <?php echo $product['name']; ?> | <?php echo $product['type']; ?> | <?php echo $product['price']; ?> | <?php echo $product['stock']; ?></h2>
 
     
         <?php
