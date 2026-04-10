@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <title>Cadastro de Produto | ConstruTech</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/register.css">
 </head>
 <body>
     
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <p><?php echo $mensagem; ?></p>
     <?php } ?>
     
-    <section class="register-product"></section>
+    <section class="register-product">
     <h1>Cadastro de Produto</h1>
 
     <form method="POST" class="register-form">
@@ -59,9 +59,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="number" id="stock" name="stock" step="1" placeholder="0" required>
 
     <button type="submit" class="register-button">Cadastrar</button>
+    
 
     
     </form>
+
+    </section>
 
 </body>
 </html>
