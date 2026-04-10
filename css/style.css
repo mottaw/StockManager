@@ -9,6 +9,7 @@
     --background: #FFFFFF;
     --text: #000000;
     --primary: #B93C3C;
+    --secondary: #EEEEEE;
 }
 
 a {
@@ -24,32 +25,56 @@ body {
 }
 
 .sidebar {
-    width: 400px;
+    width: 20%;
     height: 100vh;
-    background-color: var(--primary);
-    color: var(--background);
+    background-color: var(--secondary);
     display: flex;
     flex-direction: column;
     gap: 100px;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .logo {
-    color: var(--background);
-    font-size: 3rem;
+    color: var(--text);
+    font-size: 2rem;
     font-weight: bold;
     margin-top: 40px;
+    padding-left: 20px;
 }
 
-.links {
+.sidebar nav {
+    width: 100%;
+}
+
+.links li {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+
+.links span {
+    color: var(--text);
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px;
+}
+
+.links i {
+    font-size: 1.25rem;
+}
+
+.focus {
+    background-color: var(--primary);
+}
+
+.focus span, .focus i {
+    color: var(--background);
+}
+
+main {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    align-items: flex-start;
 }
-
-.links a {
-    color: var(--background);
-    font-size: 2.25rem;
-    font-weight: bold;
-}
-

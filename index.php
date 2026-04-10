@@ -32,33 +32,56 @@ $selectedType = $_GET['type'] ?? null;
     
         <?php
         }?> -->
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Tipo</th>
-                    <th>Preço</th>
-                    <th>Estoque</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Cimento</td>
-                    <td>Bruto</td>
-                    <td>R$ 50,00</td>
-                    <td>50</td>
-                    <td>
-                        <div>
-                            <i class="fa-solid fa-pen-to-square"></i>
-                            <i class="fa-solid fa-trash"></i>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <section class="overall_container">
+            <h1>Situação do Estoque</h1>
+            <div class="indicators_container">
+                <div class="indicator">
+                    
+                </div>
+            </div>
+        </section>
+        <section class="table_container">
+            <div class="filter_container">
+                <label for="filter">Filtrar por tipo</label>
+                <select name="filter" id="filter">
+                    <option selected>Tudo</option>
+                    <option value="Bruto">Bruto</option>
+                    <option value="Ferramenta">Ferramenta</option>
+                    <option value="Acabamento">Acabamento</option>
+                </select>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Tipo</th>
+                        <th>Preço</th>
+                        <th>Estoque</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        foreach($_SESSION["products"] as $product){
+                            echo "<tr>
+                                    <td>$product[id]</td>
+                                    <td>$product[name]</td>
+                                    <td>$product[type]</td>
+                                    <td>$product[price]</td>
+                                    <td>$product[stock]</td>
+                                    <td>
+                                        <div>
+                                            <i class='fa-solid fa-pen-to-square'></i>
+                                            <i class='fa-solid fa-trash'></i>
+                                        </div>
+                                    </td>
+                                </tr>";
+                        }
+                    ?>
+                </tbody>
+            </table>
+        </section>
     </main>
     <footer>
 
