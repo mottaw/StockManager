@@ -23,7 +23,10 @@ $selectedType = $_GET['type'] ?? null;
             <h1>Situação do Estoque</h1>
             <div class="indicators_container">
                 <div class="indicator">
-                    
+                </div>
+                <div class="indicator">
+                </div>
+                <div class="indicator">
                 </div>
             </div>
         </section>
@@ -45,18 +48,21 @@ $selectedType = $_GET['type'] ?? null;
                         <th>Tipo</th>
                         <th>Preço</th>
                         <th>Estoque</th>
+                        <th>Soma</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
+                        $products_sum = 0;
                         foreach($_SESSION["products"] as $product){
                             echo "<tr>
                                     <td>$product[id]</td>
                                     <td>$product[name]</td>
                                     <td>$product[type]</td>
-                                    <td>$product[price]</td>
+                                    <td>R$ ". number_format($product["price"], 2) . "</td>
                                     <td>$product[stock]</td>
+                                    <td>R$ " . number_format($product["price"] * $product["stock"], 2) . "</td>
                                     <td>
                                         <div>
                                             <i class='fa-solid fa-pen-to-square'></i>
@@ -64,14 +70,16 @@ $selectedType = $_GET['type'] ?? null;
                                         </div>
                                     </td>
                                 </tr>";
+
+                            $products_sum += $product["price"] * $product["stock"];
                         }
                     ?>
                 </tbody>
             </table>
+            <div>
+                <h1>Resumo Financeiro: R$ <?php echo number_format($products_sum, 2); ?></h1>
+            </div>
         </section>
     </main>
-    <footer>
-
-    </footer>
 </body>
 </html>
