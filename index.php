@@ -66,12 +66,15 @@ if(isset($_GET["type"])){
                         $products_sum = 0;
                         foreach($_SESSION["products"] as $product){
                             if($selectedType == $product["type"] || $selectedType == null){
+                                $yellowAlert = $product["stock"] <= 10 ? true : false;
+                                $redAlert = $product["stock"] <= 5 ? true : false;
+
                                 echo "<tr>
                                     <td>$product[id]</td>
                                     <td>$product[name]</td>
                                     <td>$product[type]</td>
                                     <td>R$ ". number_format($product["price"], 2) . "</td>
-                                    <td>$product[stock]</td>
+                                    <td " . ($redAlert ? "class='red_alert'" : ($yellowAlert ? "class='yellow_alert'" : '')) . ">$product[stock] " . ($yellowAlert ? "<i class='fa-solid fa-triangle-exclamation'></i>" : '') . "</td>
                                     <td>R$ " . number_format($product["price"] * $product["stock"], 2) . "</td>
                                     <td>
                                         <div>

@@ -78,3 +78,21 @@
     cursor: pointer;
     font-size: 1.5rem;
 }
+
+.yellow_alert, .red_alert {
+    position: relative;
+}
+
+.yellow_alert i {
+    color: rgb(214, 192, 49);
+    position: absolute;
+    font-size: 18px;
+    right: 25px;
+}
+
+.red_alert i {
+    color: rgb(255, 35, 35);
+    position: absolute;
+    font-size: 18px;
+    right: 25px;
+}

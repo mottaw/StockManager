@@ -13,7 +13,7 @@ $products = [
         "name" => "Cimento",
         "type" => "Bruto",
         "price" => 50.00,
-        "stock" => 30
+        "stock" => 5
     ],
     [ 
         "id" => 2,
