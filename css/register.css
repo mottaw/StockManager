@@ -1,6 +1,9 @@
-.register-product{
-    width: 700px;
-    max-width: 700px;
+.register-form {
+    width: 30%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     margin: 60px auto;
     padding: 40px;
     background-color: white;
@@ -8,21 +11,15 @@
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
 }
 
-.register-product h1{
+.register-form h1 {
     margin-bottom: 25px;
     font-size: 28px;
     color: #333;
 }
 
-.register-form{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
 .register-form input,
 .register-form textarea,
-.register-form select{
+.register-form select {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 6px;
@@ -32,14 +29,14 @@
 
 .register-button {
     margin-top: 10px;
-    background-color: #b93c3c;
+    background-color: var(--primary);
     padding: 12px;
     font-size: 15px;
     cursor: pointer;
     border: none;
     border-radius: 6px;
     transition: 0.2;
-    color: white;
+    color: var(--background);
 }
 
 .register-form button:hover{

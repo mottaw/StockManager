@@ -1,5 +1,11 @@
-<?php require_once "php/init.php";
-$selectedType = $_GET['type'] ?? null;
+<?php
+include "php/init.php";
+
+if(isset($_GET["type"])){
+    $selectedType = !empty($_GET["type"]) ? $_GET["type"] : null;
+} else {
+    $selectedType = null;
+}
 ?>
 
 <!DOCTYPE html>
@@ -31,19 +37,18 @@ $selectedType = $_GET['type'] ?? null;
             </div>
         </section>
         <section class="table_container">
-            <div class="filter_container">
-                <label for="filter">Filtrar por tipo</label>
-                <select name="filter" id="filter">
-                    <option selected>Tudo</option>
-
+            <form class="filter_container">
+                <label for="type">Filtrar por tipo</label>
+                <select name="type" id="type" onchange="this.form.submit()">
+                    <option value="none" selected disabled hidden>Selecione uma opção</option>
+                    <option value="">Tudo</option>
                     <?php
-                    foreach ($types as $ktype => $valor){
+                        foreach ($types as $ktype => $valor){
+                            echo "<option value='$ktype'" . ($selectedType == $ktype ? 'selected' : '') . ">$valor</option>";
+                        }
                     ?>
-                    <option value="<?php $ktype ?>"><?php echo $valor ?></option>
-                        
-                    <?php } ?>
                 </select>
-            </div>
+            </form>
             <table class="table">
                 <thead>
                     <tr>
@@ -60,7 +65,8 @@ $selectedType = $_GET['type'] ?? null;
                     <?php
                         $products_sum = 0;
                         foreach($_SESSION["products"] as $product){
-                            echo "<tr>
+                            if($selectedType == $product["type"] || $selectedType == null){
+                                echo "<tr>
                                     <td>$product[id]</td>
                                     <td>$product[name]</td>
                                     <td>$product[type]</td>
@@ -75,7 +81,8 @@ $selectedType = $_GET['type'] ?? null;
                                     </td>
                                 </tr>";
 
-                            $products_sum += $product["price"] * $product["stock"];
+                                $products_sum += $product["price"] * $product["stock"];
+                            }
                         }
                     ?>
                 </tbody>
