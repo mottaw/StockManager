@@ -7,4 +7,3 @@ if(!isset($_SESSION["products"])){
     $_SESSION["products"] = $products;
 }
 
-session_destroy();

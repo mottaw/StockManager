@@ -20,6 +20,7 @@ if(isset($_GET["type"])){
     <title>Sistema de Estoque | ConstruTech</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/home.css">
+    <script src="script/script.js" defer></script>
 </head>
 <body>
     <?php require_once "php/partials/sidebar.php";
@@ -49,6 +50,7 @@ if(isset($_GET["type"])){
                     ?>
                 </select>
             </form>
+
             <table class="table">
                 <thead>
                     <tr>
@@ -69,7 +71,7 @@ if(isset($_GET["type"])){
                                 $yellowAlert = $product["stock"] <= 10 ? true : false;
                                 $redAlert = $product["stock"] <= 5 ? true : false;
 
-                                echo "<tr>
+                                echo "<tr>  
                                     <td>$product[id]</td>
                                     <td>$product[name]</td>
                                     <td>$product[type]</td>
@@ -77,10 +79,20 @@ if(isset($_GET["type"])){
                                     <td " . ($redAlert ? "class='red_alert'" : ($yellowAlert ? "class='yellow_alert'" : '')) . ">$product[stock] " . ($yellowAlert ? "<i class='fa-solid fa-triangle-exclamation'></i>" : '') . "</td>
                                     <td>R$ " . number_format($product["price"] * $product["stock"], 2) . "</td>
                                     <td>
-                                        <div>
-                                            <i class='fa-solid fa-pen-to-square'></i>
-                                            <i class='fa-solid fa-trash'></i>
+
+                                    <div>
+                                        <button id='abrirpopup'><i class='fa-solid fa-pen-to-square'></i></button>
+                                        <button id='excluir'><i class='fa-solid fa-trash'></i></button>
+                                    </div>
+
+                                    <div id='popup' class='modal'>
+                                        <div class='modal-content'>
+                                            <span class='close'>&times</span>
+                                            <p>Aviso: certeza?</p>
                                         </div>
+                                    </div>
+
+
                                     </td>
                                 </tr>";
 
