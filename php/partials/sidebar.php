@@ -4,7 +4,7 @@ $currentPage = basename($_SERVER["PHP_SELF"]);
 
 <aside class="sidebar">
     <a href="index.php" class="logo">
-        <img src="img/logo.png">
+        <img src="img/dark_logo.png" id="logo">
         <p>Constru<span>Tech</span></p>
     </a>
     <nav>
@@ -23,4 +23,5 @@ $currentPage = basename($_SERVER["PHP_SELF"]);
             </li>
         </ul>
     </nav>
+    <i class="fa-solid fa-circle-half-stroke" id="toggle_theme"></i>
 </aside>

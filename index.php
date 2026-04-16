@@ -18,9 +18,11 @@ if(isset($_GET["type"])){
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Sistema de Estoque | ConstruTech</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/home.css">
     <script src="script/script.js" defer></script>
+    <script src="js/index.js" defer></script>
 </head>
 <body>
     <?php require_once "php/partials/sidebar.php";
@@ -78,7 +80,7 @@ if(isset($_GET["type"])){
             <form class="filter_container">
                 <label for="type">Filtrar por tipo</label>
                 <select name="type" id="type" onchange="this.form.submit()">
-                    <option value="none" selected disabled hidden>Selecione uma opção</option>
+                    <option value="none" disabled hidden>Selecione uma opção</option>
                     <option value="">Tudo</option>
                     <?php
                         foreach ($types as $ktype => $valor){
@@ -87,7 +89,6 @@ if(isset($_GET["type"])){
                     ?>
                 </select>
             </form>
-
             <table class="table">
                 <thead>
                     <tr>
