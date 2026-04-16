@@ -107,16 +107,17 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
-    height: 50%;
-    background-color: rgba(0, 0, 0, 0.4);
+    width: 25%;
+    height: 25%;
+    background-color: rgb(253, 239, 239);
 }
 
 modal-content{
+    justify-content: center;
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 1px solid #ffffff;
     width: 50%;
 }
 
@@ -128,6 +129,6 @@ modal-content{
 }
 
 .close:hover {
-    color:black;
+    color:rgb(0, 0, 0);
     cursor: pointer;
 }

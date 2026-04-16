@@ -1,17 +1,55 @@
-var modal = document.getElementById("popup");
-var btn = document.getElementById("excluir");
-var span = document.getElementsByClassName("close")[0];
+function popExcluir(id) {
+    document.querySelectorAll(".modal").forEach(m => {
+        m.style.display = "none";
+    });
 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
+    console.log("clicou", id);
 
-span.onclick = function() {
-    modal.style.display = "none";
-}
+    const modal = document.getElementById("popupExcluir_" + id)
 
-window.onclick = function(event) {
-    if (event.target == span) {
-        modal.style.display = "none";
+    console.log(modal);
+
+    if (modal){
+        modal.style.display = "block";
+
+    } else {
+        alert("popup nao encontrado");
     }
 }
+
+function popEditar(id) {
+    document.querySelectorAll(".modal").forEach(m => {
+        m.style.display = "none";
+        });
+
+    console.log("clicou", id);
+    const modal = document.getElementById("popupEditar_" + id)
+    console.log(modal);
+    if (modal){
+        modal.style.display = "block";
+
+    } else {
+        alert("popup nao encontrado");
+    }
+}
+
+function fecharPopupEditar(id) {
+    console.log("clicou", id);
+
+    const modal = document.getElementById("popupEditar_" + id)
+
+    console.log(modal);
+
+    modal.style.display = "none"
+}
+
+function fecharPopupExcluir(id) {
+    console.log("clicou", id);
+
+    const modal = document.getElementById("popupExcluir_" + id)
+
+    console.log(modal);
+
+    modal.style.display = "none"
+}
+
