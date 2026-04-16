@@ -3,14 +3,14 @@ $currentPage = basename($_SERVER["PHP_SELF"]);
 ?>
 
 <aside class="sidebar">
-    <a href="index.php" class="logo">
+    <a href="home.php" class="logo">
         <img src="img/dark_logo.png" id="logo">
         <p>Constru<span>Tech</span></p>
     </a>
     <nav>
         <ul class="links">
-            <li class="<?= $currentPage == "index.php" ? 'focus' : '' ?>">
-                <a href="index.php">
+            <li class="<?= $currentPage == "home.php" ? 'focus' : '' ?>">
+                <a href="home.php">
                     <i class="fa-solid fa-house"></i>
                     <span>Início</span>
                 </a>
@@ -19,6 +19,12 @@ $currentPage = basename($_SERVER["PHP_SELF"]);
                 <a href="register_product.php">
                     <i class="fa-regular fa-pen-to-square"></i>
                     <span>Cadastrar</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.php">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Sair</span>
                 </a>
             </li>
         </ul>

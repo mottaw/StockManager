@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['products'][] = $newProduct;
     $mensagem = 'Produto Cadastrado!';
 
-    header("Location: index.php");
+    header("Location: home.php");
     exit();
 }
 ?>
@@ -33,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Cadastro de Produto | ConstruTech</title>
+    <link rel="shortcut icon" href="img/light_logo.png" type="image/png">
     <link rel="stylesheet" href="css/register_product.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/index.js" defer></script>
