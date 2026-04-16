@@ -29,11 +29,48 @@ if(isset($_GET["type"])){
         <section class="overall_container">
             <h1>Situação do Estoque</h1>
             <div class="indicators_container">
+                <?php
+                    $yellowAlertCount = 0;
+                    $redAlertCount = 0;
+
+                    $i = 0;
+                    foreach($_SESSION["products"] as $product){
+                        $product["yellow_alert"] = $product["stock"] <= 10 ? true : false;
+                        $product["red_alert"] = $product["stock"] <= 5 ? true : false;
+
+                        $_SESSION["products"][$i]["yellow_alert"] = $product["yellow_alert"];
+                        $_SESSION["products"][$i]["red_alert"] = $product["red_alert"];
+
+                        if($product["red_alert"] == true){
+                            $redAlertCount++;
+                        } else if($product["yellow_alert"] == true) {
+                            $yellowAlertCount++;
+                        }
+
+                        $i++;
+                    }
+                ?>
                 <div class="indicator">
+                    <?php
+                        if($yellowAlertCount > 0) {
+                            echo "<h2>$yellowAlertCount " . ($yellowAlertCount > 1 ? "Alertas Amarelos" : "Alerta Amarelo") . "</h2>
+                                <p>Aviso! Estoque baixo!</p>";
+                        } else {
+                            echo "<h2>Nenhum Alerta Amarelo</h2>
+                                <p>Estoque em situação normal</p>";
+                        }
+                    ?>
                 </div>
                 <div class="indicator">
-                </div>
-                <div class="indicator">
+                    <?php
+                        if($redAlertCount > 0) {
+                            echo "<h2>$redAlertCount " . ($redAlertCount > 1 ? "Alertas Vermelhos" : "Alerta Vermelho") . "</h2>
+                                <p>Atenção! Estoque próximo do fim!</p>";
+                        } else {
+                            echo "<h2>Nenhum Alerta Vermelho</h2>
+                                <p>Estoque em situação normal</p>";
+                        }
+                    ?>
                 </div>
             </div>
         </section>
@@ -68,8 +105,8 @@ if(isset($_GET["type"])){
                         $products_sum = 0;
                         foreach($_SESSION["products"] as $product){
                             if($selectedType == $product["type"] || $selectedType == null){
-                                $yellowAlert = $product["stock"] <= 10 ? true : false;
-                                $redAlert = $product["stock"] <= 5 ? true : false;
+                                $yellowAlert = $product["yellow_alert"];
+                                $redAlert = $product["red_alert"];
 
                                 echo "<tr>  
                                     <td>$product[id]</td>

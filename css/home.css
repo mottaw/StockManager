@@ -15,10 +15,16 @@
 }
 
 .indicator {
-    width: 300px;
+    width: 350px;
     height: 150px;
     background-color: var(--primary);
     border-radius: 10px;
+    color: var(--background);
+    padding: 20px;
+}
+
+.indicator p {
+    font-size: 1.125rem;
 }
 
 .table_container {
