@@ -39,7 +39,18 @@ body {
     font-size: 2rem;
     font-weight: bold;
     margin-top: 40px;
-    padding-left: 20px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.logo img {
+    width: 75px;
+}
+
+.logo span {
+    color: var(--primary);
 }
 
 .sidebar nav {
