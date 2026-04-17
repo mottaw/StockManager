@@ -1,0 +1,69 @@
+main {
+    height: 100vh;
+    background-color: var(--background);
+    position: relative;
+}
+
+#toggle_theme {
+    right: 20px;
+}
+
+.logo_banner {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.logo_banner img {
+    width: 200px;
+}
+
+.logo_banner span {
+    color: var(--primary);
+}
+
+form {
+    width: 30%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: var(--secondary);
+    color: var(--text);
+    border-radius: 10px;
+    box-shadow: 0 8px 25px var(--text);
+}
+
+form h1 {
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: var(--text);
+}
+
+form input {
+    padding: 10px;
+    border: 1px solid var(--border-input);
+    border-radius: 6px;
+    font-size: 14px;
+    width: 100%;
+}
+
+form button {
+    margin-top: 10px;
+    background-color: var(--primary);
+    padding: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    transition: 0.2;
+    color: var(--background);
+    transition: .5s ease-in-out;
+    font-weight: bold;
+}
+
+form button:hover{
+    background-color: var(--text);
+}

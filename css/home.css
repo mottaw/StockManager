@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: flex-start;
     gap: 15px;
+    color: var(--text);
 }
 
 .indicators_container {
@@ -15,10 +16,16 @@
 }
 
 .indicator {
-    width: 300px;
+    width: 350px;
     height: 150px;
     background-color: var(--primary);
     border-radius: 10px;
+    color: white;
+    padding: 20px;
+}
+
+.indicator p {
+    font-size: 1.125rem;
 }
 
 .table_container {
@@ -37,6 +44,7 @@
 
 .filter_container label {
     font-size: 1.125rem;
+    color: var(--text);
 }
 
 .filter_container select {
@@ -57,6 +65,7 @@
 .table tr {
     height: 50px;
     border-bottom: 1px solid var(--text);
+    color: var(--text);
 }
 
 .table tr:nth-child(even) {
@@ -65,6 +74,7 @@
 
 .table td {
     text-align: center;
+    color: var(--text);
 }
 
 .table th {

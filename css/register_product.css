@@ -6,22 +6,23 @@
     gap: 10px;
     margin: 60px auto;
     padding: 40px;
-    background-color: white;
+    background-color: var(--secondary);
+    color: var(--text);
     border-radius: 10px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 25px var(--text);
 }
 
 .register-form h1 {
     margin-bottom: 25px;
     font-size: 28px;
-    color: #333;
+    color: var(--text);
 }
 
 .register-form input,
 .register-form textarea,
 .register-form select {
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-input);
     border-radius: 6px;
     font-size: 14px;
     width: 100%;
@@ -37,8 +38,10 @@
     border-radius: 6px;
     transition: 0.2;
     color: var(--background);
+    transition: .5s ease-in-out;
+    font-weight: bold;
 }
 
 .register-form button:hover{
-    background-color: #c47676;
+    background-color: var(--text);
 }

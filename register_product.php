@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['products'][] = $newProduct;
     $mensagem = 'Produto Cadastrado!';
 
-    header("Location: index.php");
+    header("Location: home.php");
     exit();
 }
 ?>
@@ -33,8 +33,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Cadastro de Produto | ConstruTech</title>
-    <link rel="stylesheet" href="css/register.css">
+    <link rel="shortcut icon" href="img/light_logo.png" type="image/png">
+    <link rel="stylesheet" href="css/register_product.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/index.js" defer></script>
 </head>
 <body>
     <?php require_once "php/partials/sidebar.php"; ?>
@@ -55,9 +57,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <option value="Acabamento">Acabamento</option>
             </select>
             <label for="prodPrice">Preço</label>
-            <input type="number" id="price" name="price" step="0.01" placeholder="0.00" required>
+            <input type="number" id="price" name="price" step="0.01" placeholder="0.00" min="0" required>
             <label for="prodStock">Estoque</label>
-            <input type="number" id="stock" name="stock" step="1" placeholder="0" required>
+            <input type="number" id="stock" name="stock" step="1" placeholder="0" min="0" required>
             <button type="submit" class="register-button">Cadastrar</button>
         </form>
     </main>
