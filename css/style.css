@@ -6,16 +6,17 @@
 }
 
 :root {
-    --background: #FFFFFF;
+    --background: #fdfdfd;
     --text: #000000;
     --primary: #B93C3C;
     --secondary: #EEEEEE;
     --border-input: #DDDDDD;
+    --immutable: #fdfdfd;
 }
 
 .dark {
-    --background: #111111;
-    --text: #FFFFFF;
+    --background: #2b2a2e;
+    --text: #fdfdfd;
     --primary: #B93C3C;
     --secondary: #222222;
     --border-input: #DDDDDD;
@@ -104,7 +105,7 @@ body {
 }
 
 .focus span, .focus i {
-    color: white;
+    color: var(--immutable);
 }
 
 main {
@@ -128,7 +129,7 @@ main {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    color: var(--background);
+    color: var(--immutable);
     font-size: 1.5rem;
     font-weight: bold;
     border-radius: 10px;
@@ -138,12 +139,12 @@ main {
 }
 
 .notification i {
-    color: var(--background);
+    color: var(--immutable);
     font-size: 2rem;
 }
 
 .notification p {
-    color: var(--background);
+    color: var(--immutable);
 }
 
 #remove_notification {
