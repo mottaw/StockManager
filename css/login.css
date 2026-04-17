@@ -33,7 +33,6 @@ form {
     background-color: var(--secondary);
     color: var(--text);
     border-radius: 10px;
-    box-shadow: 0 8px 25px var(--text);
 }
 
 form h1 {

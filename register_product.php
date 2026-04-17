@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['products'][] = $newProduct;
     $mensagem = 'Produto Cadastrado!';
 
-    header("Location: home.php");
+    header("Location: home.php?add");
     exit();
 }
 ?>
