@@ -197,7 +197,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_stock'])){
                                         <span class="close" onclick="fecharPopupEditar(<?= $product['id'] ?>)">&times;</span>
                                         <p>Edite a quantidade de estoques: </p>
                                         <input type="number" name="edit_stock" value="<?= $product['stock']?>">
+                                        <div  class='buttons'>
                                         <button type="submit">Ok</button>
+                                        </div>
                                     </div>
                                 </form>
 
@@ -206,8 +208,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_stock'])){
                                     <div class="modal-content">
                                         <span class="close" onclick="fecharPopupExcluir(<?= $product['id'] ?>)">&times;</span>
                                         <p>Aviso: certeza que deseja excluir permanentemente o produto?</p>
-                                        <button type="submit">Sim</button>
-                                        <button type="button" onclick="fecharPopupExcluir(<?= $product['id'] ?>)">Não</button>
+                                        <div  class='buttons'>
+                                        <button type="submit">Deletar</button>
+                                        <button type="button" onclick="fecharPopupExcluir(<?= $product['id'] ?>)">Cancelar</button>
+                                        </div>
                                     </div>
                                 </form>
 
