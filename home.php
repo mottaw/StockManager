@@ -162,12 +162,14 @@ if(isset($_GET["type"])){
 
                             <td>
                                 <div>
-                                    <button onclick="popEditar(<?= $product['id'] ?>)">
+                                    <button class='buttonUpDe'onclick="popEditar(<?= $product['id'] ?>)">
                                         <i class="fa-solid fa-pen-to-square"></i>
+                                        <span class='tooltip-box'>Editar</span>
                                     </button>
 
-                                    <button onclick="popExcluir(<?= $product['id'] ?>)">
+                                    <button class='buttonUpDe'onclick="popExcluir(<?= $product['id'] ?>)">
                                         <i class="fa-solid fa-trash"></i>
+                                        <span class='tooltip-box'>Excluir</span>
                                     </button>
                                 </div>
 
