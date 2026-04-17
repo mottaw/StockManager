@@ -113,4 +113,58 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.notification {
+    position: absolute;
+    width: 350px;
+    height: 100px;
+    background-color: var(--primary);
+    transform: translateX(175%);
+    top: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--background);
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 10px;
+    text-align: center;
+    padding: 30px;
+    animation: notification_push .5s;
+}
+
+.notification i {
+    color: var(--background);
+    font-size: 2rem;
+}
+
+.notification p {
+    color: var(--background);
+}
+
+#remove_notification {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+@keyframes notification_push {
+    from {
+        transform: translateX(500%);
+    }
+
+    to {
+        transform: translateX(175%);
+    }
+}
+
+.notification.closing {
+    transform: translateX(500%);
+    transition: transform 0.3s;
 }

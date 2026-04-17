@@ -6,10 +6,8 @@ if(isset($_GET["type"])){
 } else {
     $selectedType = null;
 }
-?>
 
-<?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
-
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])){
     $id = $_POST['delete_id'];
 
     foreach ($_SESSION['products'] as $key => $product){
@@ -20,11 +18,12 @@ if(isset($_GET["type"])){
     }
 
     $_SESSION['products'] = array_values($_SESSION['products']);
+
+    header("Location: home.php?delete");
+    exit();
 }
-?>
 
- <?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_stock'])) {
-
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_stock'])){
     $id = $_POST['edit_id'];
     $newStock = $_POST['edit_stock'];
 
@@ -34,8 +33,11 @@ if(isset($_GET["type"])){
             break;
         }
     }
- }
- ?>
+
+    header("Location: home.php?edit");
+    exit();
+}
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -54,9 +56,25 @@ if(isset($_GET["type"])){
     <script src="js/index.js" defer></script>
 </head>
 <body>
-    <?php require_once "php/partials/sidebar.php";
-    ?>
+    <?php require_once "php/partials/sidebar.php"; ?>
     <main>
+        <?php
+            function notification($text){
+                return "<div class='notification'>
+                            <i class='fa-solid fa-check'></i>
+                            <p>$text</p>
+                            <i class='fa-regular fa-circle-xmark' id='remove_notification'></i>
+                        </div>";
+            }
+
+            if(isset($_GET["add"])){
+                echo notification("Produto cadastrado com sucesso!");
+            } else if(isset($_GET["delete"])){
+                echo notification("Produto excluído com sucesso!");
+            } else if(isset($_GET["edit"])){
+                echo notification("Produto editado com sucesso!");
+            }
+        ?>
         <section class="overall_container">
             <h1>Situação do Estoque</h1>
             <div class="indicators_container">
@@ -187,7 +205,7 @@ if(isset($_GET["type"])){
                                         <span class="close" onclick="fecharPopupExcluir(<?= $product['id'] ?>)">&times;</span>
                                         <p>Aviso: certeza que deseja excluir permanentemente o produto?</p>
                                         <button type="submit">Sim</button>
-                                        <button onclick="fecharPopupExcluir(<?= $product['id'] ?>)">Não</button>
+                                        <button type="button" onclick="fecharPopupExcluir(<?= $product['id'] ?>)">Não</button>
                                     </div>
                                 </form>
 
