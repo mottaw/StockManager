@@ -1,4 +1,15 @@
-<?php require_once 'php/init.php'; ?>
+<?php
+require_once 'php/init.php';
+
+$user = isset($_POST["user"]) ? $_POST["user"] : null;
+$password = isset($_POST["password"]) ? $_POST["password"] : null;
+
+if($user == "admin" && $password == "admin"){
+    header("Location: home.php");
+} else {
+
+}
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -17,11 +28,24 @@
 </head>
 <body>
     <main>
+        <?php
+            function notification($text){
+                return "<div class='notification'>
+                            <i class='fa-solid fa-xmark'></i>
+                            <p>$text</p>
+                            <i class='fa-regular fa-circle-xmark' id='remove_notification'></i>
+                        </div>";
+            }
+
+            if($user != null){
+                echo notification("Acesso negado!");
+            }
+        ?>
         <div class="logo_banner">
             <img src="img/dark_logo.png" id="logo">
             <h1>Constru<span>Tech</span></h1>
         </div>
-        <form action="home.php" method="POST">
+        <form action="index.php" method="POST">
             <h1>Login</h1>
             <div>
                 <label for="user">Usuário</label>

@@ -11,8 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'id' => $newId,
         'name' => $_POST['name'],
         'type' => $_POST['type'],
-        'price' => $_POST['price'],
-        'stock' => $_POST['stock']
+        'price' => (float) $_POST['price'],
+        'stock' => (int) $_POST['stock']
     ];
     
     $_SESSION['products'][] = $newProduct;
