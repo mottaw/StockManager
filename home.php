@@ -25,13 +25,22 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])){
 
 if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_stock'])){
     $id = $_POST['edit_id'];
+    $newType = $_POST['edit_type'];
+    $newName = $_POST['edit_name'];
+    $newPrice = $_POST['edit_price'];
     $newStock = $_POST['edit_stock'];
 
     foreach ($_SESSION['products'] as $key => $product){
         if ($product['id'] == $id){
             $_SESSION['products'][$key]['stock'] = $newStock;
+            $_SESSION['products'][$key]['type'] = $newType;
+            $_SESSION['products'][$key]['name'] = $newName;
+            $_SESSION['products'][$key]['price'] = $newPrice;
             break;
         }
+            
+
+        
     }
 
     header("Location: home.php?edit");
@@ -136,6 +145,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_stock'])){
                     ?>
                 </select>
             </form>
+            <form class="search_container" method="GET">
+                <label for="search">Pesquisar</label>
+                <input type="text" name="search" id="search" placeholder="Faça sua busca...">
+                <button type="submit">Buscar</button>
+            </form>
             <table class="table">
                 <thead>
                     <tr>
@@ -150,6 +164,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_stock'])){
                 </thead>
                 <tbody>
                     <?php
+                        $search = isset($_GET["search"]) ? $_GET["search"] : null;
+
                         $products_sum = 0;
 
                         foreach($_SESSION["products"] as $product):
@@ -195,7 +211,19 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_stock'])){
                                 <input type="hidden" name="edit_id" value="<?= $product['id'] ?>">
                                     <div class="modal-content">
                                         <span class="close" onclick="fecharPopupEditar(<?= $product['id'] ?>)">&times;</span>
-                                        <p>Edite a quantidade de estoques: </p>
+                                        <label for="name">Nome</label>
+                                        <input type="text" id="edit_name" name="edit_name" value="<?= $product['name']?>" required>  
+                                        <label for="prodType">Tipo</label>   
+                                        <select name="edit_type" id="type">
+                                            <?php
+                                                foreach ($types as $ktype => $valor){
+                                                    echo "<option value='$ktype'" . ($selectedType == $ktype ? 'selected' : '') . ">$valor</option>";
+                                                }
+                                            ?>
+                                        </select>
+                                        <label for="prodPrice">Preço</label>
+                                        <input type="number" id="price" name="edit_price" step="0.01" value="<?= $product['price']?>" min="0" required>
+                                        <label for="prodStock">Estoque</label>
                                         <input type="number" name="edit_stock" value="<?= $product['stock']?>">
                                         <div  class='buttons'>
                                         <button type="submit">Ok</button>

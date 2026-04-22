@@ -52,9 +52,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="text" id="name" name="name" placeholder="Digite aqui" required>
             <label for="prodType">Tipo</label>
             <select name="type" id="type">
-                <option value="Bruto">Bruto</option>
-                <option value="Ferramenta">Ferramenta</option>
-                <option value="Acabamento">Acabamento</option>
+                <?php
+                    foreach ($types as $ktype => $valor){
+                        echo "<option value='$ktype'" . ($selectedType == $ktype ? 'selected' : '') . ">$valor</option>";
+                    }
+                ?>
             </select>
             <label for="prodPrice">Preço</label>
             <input type="number" id="price" name="price" step="0.01" placeholder="0.00" min="0" required>
