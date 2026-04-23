@@ -21,7 +21,7 @@ toggleThemeBtn.addEventListener("click", () => {
     applyTheme(theme);
 });
 
-const savedTheme = localStorage.getItem("theme") || "light";
+const savedTheme = localStorage.getItem("theme") || "dark";
 applyTheme(savedTheme);
 
 const removeNotificationBtn = document.querySelector("#remove_notification");

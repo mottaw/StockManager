@@ -133,7 +133,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_stock'])){
             </div>
         </section>
         <section class="table_container">
-            <form class="filter_container">
+            <form class="filter_container" method="GET">
+                <div class="search_container">
+                    <label for="search">Pesquisar</label>
+                    <input type="text" name="search" id="search" placeholder="Faça sua busca...">
+                    <button type="submit">Buscar</button>
+                </div>
                 <label for="type">Filtrar por tipo</label>
                 <select name="type" id="type" onchange="this.form.submit()">
                     <option value="none" disabled hidden>Selecione uma opção</option>
@@ -144,11 +149,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_stock'])){
                         }
                     ?>
                 </select>
-            </form>
-            <form class="search_container" method="GET">
-                <label for="search">Pesquisar</label>
-                <input type="text" name="search" id="search" placeholder="Faça sua busca...">
-                <button type="submit">Buscar</button>
             </form>
             <table class="table">
                 <thead>
@@ -164,13 +164,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_stock'])){
                 </thead>
                 <tbody>
                     <?php
-                        $search = isset($_GET["search"]) ? $_GET["search"] : null;
+                        $search = isset($_GET["search"]) ? $_GET["search"] : "";
 
                         $products_sum = 0;
 
                         foreach($_SESSION["products"] as $product):
 
-                            if($selectedType == $product["type"] || $selectedType == null):
+                            if((stripos($product["name"], $search) !== false) && ($selectedType == $product["type"] || $selectedType == null)):
 
                                 $yellowAlert = $product["stock"] <= 10 ? true : false;
                                 $redAlert = $product["stock"] <= 5 ? true : false;
@@ -210,6 +210,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_stock'])){
                                 <form method="POST" id="popupEditar_<?= $product['id'] ?>" class="modal">
                                 <input type="hidden" name="edit_id" value="<?= $product['id'] ?>">
                                     <div class="modal-content">
+                                        <h3>Edição de produto</h3>
+                                        <p></p>
                                         <span class="close" onclick="fecharPopupEditar(<?= $product['id'] ?>)">&times;</span>
                                         <label for="name">Nome</label>
                                         <input type="text" id="edit_name" name="edit_name" value="<?= $product['name']?>" required>  
@@ -217,7 +219,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_stock'])){
                                         <select name="edit_type" id="type">
                                             <?php
                                                 foreach ($types as $ktype => $valor){
-                                                    echo "<option value='$ktype'" . ($selectedType == $ktype ? 'selected' : '') . ">$valor</option>";
+                                                    echo "<option value='$ktype'" . ($product["type"] == $ktype ? 'selected' : '') . ">$valor</option>";
                                                 }
                                             ?>
                                         </select>
